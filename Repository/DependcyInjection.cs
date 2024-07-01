@@ -5,7 +5,7 @@ using Repository.Repositories.Interface;
 namespace Repository
 {
     public static class DependcyInjection
-    {
+    { 
         public static IServiceCollection AddRepositoryLayer(this IServiceCollection services)
         {
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
@@ -13,6 +13,12 @@ namespace Repository
             services.AddScoped<IStudentRepository, StudentRepository>();
 
             services.AddScoped<IGroupRepository, GroupRepository>();
+
+            services.AddScoped<IEducationRepository, EducationRepository>();
+
+            services.AddScoped<IRoomRepository, RoomRepository>();
+
+            services.AddScoped<ITeacherRepository, TeacherRepository>();
 
 
             return services;

@@ -1,6 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Repository.Data;
-using System;
+using Repository;
+using Serilog;
+using Service;
+using CourseAPP.Middlewares;
+using Service.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,10 +21,18 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 
 
+var logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
 
-//builder.Services.AddRepositoryLayer();
-//builder.Services.AddServiceLayer();
-//builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
+
+
+builder.Services.AddRepositoryLayer();
+builder.Services.AddServiceLayer();
+builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
 
 
@@ -32,6 +44,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+app.UseMiddleware<ExceptionHandingMiddlewares>();
 
 app.UseHttpsRedirection();
 

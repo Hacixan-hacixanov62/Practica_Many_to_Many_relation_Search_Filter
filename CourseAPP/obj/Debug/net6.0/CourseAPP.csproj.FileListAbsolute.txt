@@ -77,3 +77,13 @@ C:\API (epiay)\CourseAPP\CourseAPP\obj\Debug\net6.0\refint\CourseAPP.dll
 C:\API (epiay)\CourseAPP\CourseAPP\obj\Debug\net6.0\CourseAPP.pdb
 C:\API (epiay)\CourseAPP\CourseAPP\obj\Debug\net6.0\CourseAPP.genruntimeconfig.cache
 C:\API (epiay)\CourseAPP\CourseAPP\obj\Debug\net6.0\ref\CourseAPP.dll
+C:\API (epiay)\CourseAPP\CourseAPP\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\API (epiay)\CourseAPP\CourseAPP\bin\Debug\net6.0\Serilog.dll
+C:\API (epiay)\CourseAPP\CourseAPP\bin\Debug\net6.0\Serilog.AspNetCore.dll
+C:\API (epiay)\CourseAPP\CourseAPP\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+C:\API (epiay)\CourseAPP\CourseAPP\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+C:\API (epiay)\CourseAPP\CourseAPP\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+C:\API (epiay)\CourseAPP\CourseAPP\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+C:\API (epiay)\CourseAPP\CourseAPP\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+C:\API (epiay)\CourseAPP\CourseAPP\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+C:\API (epiay)\CourseAPP\CourseAPP\bin\Debug\net6.0\Serilog.Sinks.File.dll

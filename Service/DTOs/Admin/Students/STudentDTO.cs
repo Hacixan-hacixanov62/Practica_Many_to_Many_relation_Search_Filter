@@ -1,4 +1,6 @@
-﻿namespace Service.DTOs.Admin.Students
+﻿using Service.DTOs.Admin.Groups;
+
+namespace Service.DTOs.Admin.Students
 {
     public class STudentDTO
     {
@@ -8,5 +10,6 @@
         public string Email { get; set; }
         public int Age { get; set; }
         public List<StudentGroupsDTO> StudentGroups { get; set; }
+        public List<GroupDTO> Groups { get; set; }
     }
 }

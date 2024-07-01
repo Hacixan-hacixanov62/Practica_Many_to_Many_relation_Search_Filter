@@ -29,7 +29,7 @@ namespace Service.Service
 
         public async Task CreateAsync(StudentCreateDTO model)
         {
-            var existGroup = await _groupRepo.GetById(model.GroupId);
+            var existGroup = await _groupRepo.GetAllAsync(model.GroupId);
             if (existGroup is null)
             {
                 _logger.LogWarning($"Group is not found -{model.GroupId + "-" + DateTime.Now.ToString()}");
@@ -37,15 +37,19 @@ namespace Service.Service
             }
             if (model == null) throw new ArgumentNullException();
 
-
-            Student student = _mapper.Map<Student>(model);
-            student.StudentGroups.Add(new StudentGroup
+            foreach (var item in existGroup)
             {
-                GroupId = model.GroupId,
-                StudentId = student.Id
-            }) ;
-
-            await _studentRepo.CreateAsync(student);
+                if (item.Capacity > item.StudentCount)
+                {
+                    item.StudentCount++;
+                    await _groupRepo.EditAsync(item);
+                    await _studentRepo.CreateAsync(_mapper.Map<Student>(model));
+                }
+                else
+                {
+                    throw new NotFoundException($"Group is full");
+                }
+            }
 
         }
 
